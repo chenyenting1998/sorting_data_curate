@@ -1,0 +1,64 @@
+OR1_1242 sorting sheet updates
+
+2020.08.25
+
+Taxon:
+	crab & shrimp ==> decapoda
+notes: 
+	[blank] ==> shrimp
+	carapace measured ==> crab; carapace measured
+New file created:
+	2020.08.25[ignore all other files; this is the final file]OR1_1242-FINAL DATA.xlsx
+----------------------------------------------------
+2020.09.14
+ add a new data S7-2-2, hydrozoa
+----------------------------------------------------
+2020.09.16
+ S7-2-2, oligocheata added
+ S7-2-8, oligocheata added
+----------------------------------------------------
+2020.09.21
+ GC1-1-3 Chaetognatha added
+----------------------------------------------------
+2020.09.21 - updates
+ S6-1-3 oligochaeta * 2 added
+
+----------------------------------------------------
+2020.09.21 - updates
+ S6-1-11 oligochaeta * 2 added
+----------------------------------------------------
+2021.02.03 - updates
+ Remeasurement of Ophiuroids in OR1-1242
+ 2021.02.03_Ophiuroidea_remeasured_RawTypingFile
+ S1-2-1, 4, 6 measured and typed
+----------------------------------------------------
+2021.02.03 - updates
+ Remeasurement of Ophiuroids in OR1-1242
+ 2021.02.03_Ophiuroidea_remeasured_RawTypingFile
+ Measured and typed:
+ S2-6-6
+ S2-6-7
+ S2-6-12
+ S5-1-7
+ S5-1-8
+ S5-1-9
+----------------------------------------------------
+2021.02.06 updates
+ remeasurement of Oph.s are complete
+ data from rawtypingfile has been calibrated (L& W * 0.1) and joined with the main data
+ the data are available in "OR1_1242_macro_size.xlsx"
+
+--------------------------------------------------------
+2021.02.06 updates
+recieved polychaete identifications and measurements from Yen-Li (What a bad ass....)
+
+
+-----------------------------------------------------------
+
+2021.08.02 updates
+
+arachnida => acari
+entoprocta condition "F" ==> "C"
+entoprocta ==< hydrozoa (old identification error)
+Mysidacea ==>　mysida
+oph ==> using new notation (aaaand I forget to mark the changes on the sorting sheet)
