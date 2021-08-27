@@ -62,4 +62,4 @@ poly_re_modified$Condition <- poly_re_modified$Condition %>% toupper()
 
 # write excel -------------------------------------------------------------
 full_join(macro, poly_re_modified) %>%
-  write_xlsx("LGD-2006_macro_size_final.xlsx")
+  write_xlsx("data/LGD-2006_macro_size_final.xlsx")
