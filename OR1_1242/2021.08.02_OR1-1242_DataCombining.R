@@ -18,5 +18,5 @@ new <- read_xlsx("OR1_1242/2021.02.06 (ignore all other files; this is the final
   mutate(Section = "0-10")
 
 # write xlsx
-write_xlsx(list(OR1_1242_Macro = new), "OR1_1242_macro_size_final.xlsx") # lack polychaete infromation
+write_xlsx(list(OR1_1242_Macro = new), "data/OR1_1242_macro_size_final.xlsx") # lack polychaete infromation
 
