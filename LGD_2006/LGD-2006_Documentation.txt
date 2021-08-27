@@ -1,0 +1,40 @@
+2021/02/03
+
+20210203_LGD-2006_RawTypingFile.xlsx
+
+Adding A1-1~3, E1-1~3, ZHJ3-1~3, ZHJ4-1~3
+-------------------------------------------
+
+2021/02/03
+
+20210203_LGD-2006_RawTypingFile.xlsx
+
+adding K1, G1, H1,J1. C1
+
+adding biovolume estimation
+
+---------------------------------------------
+
+2021/03/23
+
+20210203_LGD-2006_RawTypingFile.xlsx
+
+adding ZHJ3-1 Amphipod *1
+
+------------------------------------------------
+
+2021/07/29
+
+add N1 and P4
+20210729_LGD-2006_RawTypingFile.xlsx
+
+Joining all the data 
+2021.07.29_DataCombining.R
+LGD-2006_macro_size_final.xlsx
+
+
+--------------------------
+
+2021/07/31
+
+oph remeasured
