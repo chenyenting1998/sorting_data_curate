@@ -9,6 +9,11 @@ pacman::p_load(
 raw_20210203 <- read_xlsx("LGD_2006/20210203_LGD-2006_RawTypingFile.xlsx")
 # stations include P4 N1 and such, the ophiuroids were measured with the new way
 raw_20210729 <- read_xlsx("LGD_2006/20210729_LGD-2006_RawTypingFile.xlsx")
+# oph
+oph_re <- read_xlsx("LGD_2006/LGD-2006_oph_rem.xlsx")
+# poly
+poly_re <- read_excel("LGD_2006/LGD-2006_poly_rem.xlsx")
+
 
 # View(raw_20210203)
 # View(raw_20210729)
@@ -30,8 +35,6 @@ raw_20210729_modified <-
 
 # ophuiroid ---------------------------------------------------------------
 # oph_rem of the raw_20210203
-oph_re <- read_xlsx("LGD_2006/LGD-2006_oph_rem.xlsx")
-
 macro <- full_join(raw_20210203_add_oph, raw_20210729_modified)
 
 # Change specific values --------------------------------------------------
@@ -46,8 +49,6 @@ macro[macro$Taxon == "Arachnida", ]$Taxon <- "Acari"
 
 
 # polychaete --------------------------------------------------------------
-poly_re <- read_excel("LGD_2006/LGD-2006_poly_rem.xlsx")
-
 # add information
 poly_re_modified <-
   poly_re %>%
