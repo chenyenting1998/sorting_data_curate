@@ -1,14 +1,13 @@
-# final changes
-# OR1-1219
-setwd('C:\\Users\\tumha\\Desktop\\Lab Work\\Data\\Sorting data\\OR1_1219')
-library(readxl)
-library(writexl)
-library(dplyr)
-library(tidyr)
+pacman::p_load(
+  readxl,
+  writexl,
+  dplyr
+)
 
 # read RawTypingFile ----
-sheet.data <- read_xlsx('OR1-1219_RawTypingFile.xlsx', sheet = 3) 
-raw.data <- sheet.data %>% mutate(L = L*0.1, W = W*0.1) # rescale L and W
+macro <- 
+  read_xlsx('OR1_1219/OR1-1219_RawTypingFile.xlsx', sheet = 3) %>% 
+  mutate(L = L*0.1, W = W*0.1) # rescale L and W to mm
 
 # adding summerinternship data ----
 si <- read_xlsx('2021.03.09_OR1-1217_OR1-1219_macro_sorting.xlsx',sheet = 4) %>% 
