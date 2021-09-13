@@ -10,8 +10,9 @@ summer <-
   filter(Cruise == "OR1_1219") %>% # filter by cruise
   filter(Taxon != "Polychaeta") %>%  # filter polychaetes
   filter(Taxon != "Ophiuroidea") # filter ophiuroids
+# View(head(summer))
 
-# renaming unknowns in the summerinternship data ----
+## renaming unknowns in the summerinternship data ----
 # screen out species expect unknown
 summer_others <- 
   summer %>% 
@@ -34,7 +35,8 @@ summer <-
 
 # other size data ----
 # ophiuroids are measured correctly
-size <- read_xlsx('OR1_1219/OR1-1219_RawTypingFile.xlsx', sheet = 3)
+size <- read_xlsx('OR1_1219/OR1-1219_RawTypingFile.xlsx', sheet = 3) %>%
+  mutate(L = L * 0.1, W = W * 0.1)
 
 # Change "Limb" (old protocol) to "Arm"
 size[size$Note %in% "Limb",]$Note <- "Arm" 
@@ -42,8 +44,21 @@ size[size$Note %in% "Limb",]$Note <- "Arm"
 # combine summer and size ----
 size <- full_join(summer, size)
 
+# Remove Bryozoa since I cannot find the speciemen... ---------------------------
+size <- size[size$Taxon != "Bryozoa",]
+
 # read OR1_1219 polychaeta ----
-poly_measurements <- read_xlsx("OR1_1219/OR1-1219_poly_rem.xlsx")
+poly_measurements <- read_xlsx("OR1_1219/OR1-1219_poly_rem.xlsx") %>%
+  mutate(L = L * 0.1, W = W * 0.1)
+
+s7 <- 
+  read_xlsx('OR1_1219/2021.03.09_OR1-1217_OR1-1219_macro_sorting.xlsx',sheet = 4) %>%
+  filter(Station == "S7") %>%
+  filter(Taxon == "Polychaeta") %>%
+  mutate(Section = "0-10")
+
+poly_measurements <- full_join(poly_measurements, s7)
+
 
 # join all data and write xlsx----
-full_join(poly_measurements, size) %>% write_xlsx(path = "data/OR1_1219_macro_final.xlsx")
+full_join(poly_measurements, size) %>% write_xlsx(path = "data/OR1_1219_macro_size_final.xlsx")
