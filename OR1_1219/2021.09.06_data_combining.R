@@ -5,6 +5,8 @@ pacman::p_load(dplyr,
                writexl)
 
 # summer internship data----
+# the data collected in the 2019 summer internship is standardized to mm
+
 summer <- 
   read_xlsx('OR1_1219/2021.03.09_OR1-1217_OR1-1219_macro_sorting.xlsx',sheet = 4) %>%
   filter(Cruise == "OR1_1219") %>% # filter by cruise
@@ -36,29 +38,32 @@ summer <-
 # other size data ----
 # ophiuroids are measured correctly
 size <- read_xlsx('OR1_1219/OR1-1219_RawTypingFile.xlsx', sheet = 3) %>%
-  mutate(L = L * 0.1, W = W * 0.1)
+  mutate(L = L * 0.1, W = W * 0.1) # unit to mm
 
-# Change "Limb" (old protocol) to "Arm"
+# Standardize notation: "Limb" (old) to "Arm"
 size[size$Note %in% "Limb",]$Note <- "Arm" 
 
-# combine summer and size ----
+# combine summer and size into size ----
 size <- full_join(summer, size)
 
 # Remove Bryozoa since I cannot find the speciemen... ---------------------------
 size <- size[size$Taxon != "Bryozoa",]
 
 # read OR1_1219 polychaeta ----
-poly_measurements <- read_xlsx("OR1_1219/OR1-1219_poly_rem.xlsx") %>%
-  mutate(L = L * 0.1, W = W * 0.1)
+poly_measurements <- 
+  read_xlsx("OR1_1219/OR1-1219_poly_rem.xlsx") %>%
+  mutate(L = L * 0.1, W = W * 0.1) # unit to mm
 
-s7 <- 
+s7_poly <- 
   read_xlsx('OR1_1219/2021.03.09_OR1-1217_OR1-1219_macro_sorting.xlsx',sheet = 4) %>%
+  filter(Cruise == "OR1_1219") %>%
   filter(Station == "S7") %>%
   filter(Taxon == "Polychaeta") %>%
   mutate(Section = "0-10")
 
-poly_measurements <- full_join(poly_measurements, s7)
-
+total_poly <- full_join(poly_measurements, s7)
 
 # join all data and write xlsx----
-full_join(poly_measurements, size) %>% write_xlsx(path = "data/OR1_1219_macro_size_final.xlsx")
+size <- full_join(total_poly, size)
+
+write_xlsx(size, path = "data/OR1_1219_macro_size_final.xlsx")
