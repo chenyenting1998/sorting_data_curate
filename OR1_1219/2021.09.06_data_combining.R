@@ -61,7 +61,7 @@ s7_poly <-
   filter(Taxon == "Polychaeta") %>%
   mutate(Section = "0-10")
 
-total_poly <- full_join(poly_measurements, s7)
+total_poly <- full_join(poly_measurements, s7_poly)
 
 # join all data and write xlsx----
 size <- full_join(total_poly, size)
