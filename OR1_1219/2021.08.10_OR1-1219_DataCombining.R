@@ -10,7 +10,7 @@ macro <-
   mutate(L = L*0.1, W = W*0.1) # rescale L and W to mm
 
 # adding summerinternship data ----
-si <- read_xlsx('2021.03.09_OR1-1217_OR1-1219_macro_sorting.xlsx',sheet = 4) %>% 
+si <- read_xlsx('OR1_1219/2021.03.09_OR1-1217_OR1-1219_macro_sorting.xlsx',sheet = 4) %>% 
   filter(Cruise == "OR1_1219") %>% # filter by cruise
   filter(Taxon != "Polychaeta") %>%  # filter polychaetes
   filter(Taxon != "Ophiuroidea") # filter ophiuroids
